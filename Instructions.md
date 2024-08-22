@@ -102,8 +102,9 @@ Let's suppose that we want to support two types of calculators:
   - write a few tests that use `RoundingCalculatorModel` and `RoundingCalculatorModelFactory`
 
 ### Step 4
-  - apply the `Singeton` design pattern to `StandardCalculatorModelFactory` and `RoundingCalculatorModelFactory`
+  - apply the `Singleton` design pattern to `StandardCalculatorModelFactory` 
   - ensure that your tests still pass
+    (Hint: you will likely find it necessary to reset the calculator's state after each test by pressing the `C` action key)
 
 For these steps, you are encouraged to work in TDD-style as much as possible, e.g., by writing tests before you fully implement your `RoundingCalculator`
 
