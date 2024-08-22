@@ -1,25 +1,19 @@
-# Week 3 TDD Class Activity: Implementing a basic Calculator
+# Week 5 Class Activity: Creational Design Patterns
 
-In this activity, you will implement the calculator you designed in previous classes using Test Driven Development. This activity is only designed to introduce you to TDD and demonstrate some key ideas behind it; we will cover testing in more detail (functional/black-box testing, structural/white-box testing, testing strategies) in subsequent lectures. Students are expected to work in pairs on this activity. Submission instructions can be found at the bottom of the document.
-
-## Notes:
-1. It takes months of practice to use TDD effectively in real world projects.
-2. This activity is just a demonstration of TDD. You actual implementation might contain more complex data structures or patterns like stacks or state machines. The internals of the implementations as well as operators can vary significantly as long as the interface is respected. 
-3. Use of `eval` and similar dynamic features is not allowed.
+In this activity, we will start with a version of the calculator that we developed during the previous class activity on Test Driven Development.  Your task is to modify the code to introduce Creational Design Patterns.
 
 ## Key Ideas
 
-In this activity, we will follow 3 simple steps to implement Test Driven Development:
-1. Write a test for some intended behavior.
-   - Always start with simple things and then move on to complex cases once the simple cases have been exhausted.
-2. Write the minimal amount of code to make the tests pass.
-   - Drive tests and implementation in opposite directions: As the tests get more complex (specific), the solution should become more general. 
+In this activity, we will follow these steps:
+1. Refactor the code to introduce a design pattern.
+2. Update the tests accordingly and run them to make sure that they pass.
 3. Refactor code to remove duplication/inefficiencies.
 
 ## Starter Code Overview
 
-To enforce some consistency across implementations (and allow us to build on the same code in the next few activities), we have provided a scaffold.
-The bulk of the implementation in this activity will be in 2 files, namely `src/models/calculator.model.ts` and `src/models/calculator.model.spec.ts`.
+To enforce some consistency across implementations (and allow us to build on the same code in the next few activities), we will start with a simple solution that we developed during the previous class activity on Test-Driven Development. 
+
+The bulk of the implementation in this activity is in 2 files, namely `src/models/calculator.model.ts` and `src/models/calculator.model.spec.ts`.
 We have enforced high level constraints on the implementation through the `ICalculatorModel` interface at `src/interfaces/calculator-model.interface.ts`.
 The interface requires the existence of 4 methods on the CalculatorModel as shown below:
 
@@ -49,38 +43,11 @@ The interface assumes that there are handlers for 3 types of key presses: numeri
 Additionally, there is a display method which returns the current value on the calculator screen.
 The values accepted by the different keys can be modified in `src/enums/*.enum.ts`
 
-For simplicity, we have provided the class that implements this interface called CalculatorModel at `src/models/calculator.model.ts` as below:
-
-```typescript
-import { ActionKeys } from '../enums/action-keys.enum';
-import { NumericKeys } from '../enums/numeric-keys.enum';
-import { OperatorKeys } from '../enums/operator-keys.enum';
-import { ICalculatorModel } from '../interfaces/calculator-model.interface';
-
-export class CalculatorModel implements ICalculatorModel {
-
-  public pressNumericKey(key: NumericKeys): void {
-    throw new Error('Method not implemented.');
-  }
-
-  public pressOperatorKey(key: OperatorKeys): void {
-    throw new Error('Method not implemented.');
-  }
-
-  public pressActionKey(key: ActionKeys): void {
-    throw new Error('Method not implemented.');
-  }
-
-  public display(): string {
-    throw new Error('Method not implemented.');
-  }
-
-}
-```
+To get you started, we have provided an implementation this interface called CalculatorModel at `src/models/calculator.model.ts`. Please begin by examining the code. Then run the tests and confirm that they pass.
 
 ## Getting Started
 
-To begin the TDD activity, run `npm install` in the root of the starter code (location where package.json is present).
+To begin the activity, run `npm install` in the root of the starter code (location where package.json is present).
 Once the installation is complete, run the test commands `npm run test`. You should see the output as below:
 
 ```bash
